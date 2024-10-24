@@ -1,22 +1,17 @@
+
 struct Solution;
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-        let mut indices = (0..nums.len()).collect::<Vec<_>>();
-        indices.sort_unstable_by(|&i, &j| nums[i].cmp(&nums[j]));
-        let mut i = 0;
-        let mut j = nums.len() - 1;
-        while i != j {
-            let sum = nums[indices[i]] + nums[indices[j]];
-            if sum > target {
-                j -= 1;
-            } else if sum < target {
-                i += 1;
-            } else {
-                return vec![indices[i] as i32, indices[j] as i32];
+        let mut nums_map = std::collections::HashMap::<&i32, usize>::new();
+        for (i, num) in nums.iter().enumerate() {
+            let complement = target - num;
+            if let Some(index) = nums_map.get(&complement) {
+                return vec![*index as i32, i as i32]
             }
+            nums_map.insert(num, i);
         }
-        panic!("no two sums found")
+        panic!()
     }
 }
 
