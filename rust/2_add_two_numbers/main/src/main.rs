@@ -19,26 +19,30 @@ struct Solution;
 
 impl Solution {
     pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut i1 = &l1;
-        let mut i2 = &l2;
+        let mut a = l1.clone();
+        let mut b = l2.clone();
+
+        let mut head = Box::new(ListNode::new(0));
+        let mut curr = &mut head;
         let mut carry = 0;
-        let mut r = vec![];
-        while i1.is_some() || i2.is_some() || carry != 0 {
+        while a.is_some() || b.is_some() || carry != 0 {
             let mut sum = carry;
-            if let Some(x) = i1 {
+            if let Some(x) = a {
                 sum += x.val;
-                i1 = &x.next;
+                a = x.next;
             }
-            if let Some(x) = i2 {
+
+            if let Some(x) = b {
                 sum += x.val;
-                i2 = &x.next;
+                b = x.next;
             }
+
+            let val = sum % 10;
             carry = sum / 10;
-            let digit = sum % 10;
-            println!("{} {}", carry, digit);
-            r.push(digit);
+            curr.next = Some(Box::new(ListNode::new(val)));
+            curr = curr.next.as_mut().unwrap();
         }
-        vec_to_list(r)
+        head.next
     }
 }
 
@@ -46,6 +50,7 @@ fn main() {
     assert_eq!(list_to_vec(Solution::add_two_numbers(vec_to_list(vec![2, 4, 3]), vec_to_list(vec![5, 6, 4]))), vec![7, 0, 8]);
     assert_eq!(list_to_vec(Solution::add_two_numbers(vec_to_list(vec![0]), vec_to_list(vec![0]))), vec![0]);
     assert_eq!(list_to_vec(Solution::add_two_numbers(vec_to_list(vec![9, 9, 9, 9, 9, 9, 9]), vec_to_list(vec![9, 9, 9, 9]))), vec![8, 9, 9, 9, 0, 0, 0, 1]);
+    assert_eq!(list_to_vec(Solution::add_two_numbers(vec_to_list(vec![9, 9, 9, 9]), vec_to_list(vec![9, 9, 9, 9, 9, 9, 9]))), vec![8, 9, 9, 9, 0, 0, 0, 1]);
 }
 
 fn vec_to_list(vec: Vec<i32>) -> Option<Box<ListNode>> {
