@@ -2,12 +2,8 @@
 <module type="EMPTY_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/rust/1_two_sum/main/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/rust/2_add_two_numbers/main/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/rust/3_longest_substring_wo_repeat_char/main/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/rust/1_two_sum/main/target" />
-      <excludeFolder url="file://$MODULE_DIR$/rust/2_add_two_numbers/main/target" />
-      <excludeFolder url="file://$MODULE_DIR$/rust/3_longest_substring_wo_repeat_char/main/target" />
+      <sourceFolder url="file://$MODULE_DIR$/rust/main/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/rust/main/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

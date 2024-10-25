@@ -46,7 +46,7 @@ impl Solution {
     }
 }
 
-fn main() {
+pub fn test() {
     assert_eq!(list_to_vec(Solution::add_two_numbers(vec_to_list(vec![2, 4, 3]), vec_to_list(vec![5, 6, 4]))), vec![7, 0, 8]);
     assert_eq!(list_to_vec(Solution::add_two_numbers(vec_to_list(vec![0]), vec_to_list(vec![0]))), vec![0]);
     assert_eq!(list_to_vec(Solution::add_two_numbers(vec_to_list(vec![9, 9, 9, 9, 9, 9, 9]), vec_to_list(vec![9, 9, 9, 9]))), vec![8, 9, 9, 9, 0, 0, 0, 1]);
