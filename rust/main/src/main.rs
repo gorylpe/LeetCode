@@ -2,9 +2,9 @@
 // mod m2_add_two_numbers;
 // mod m3_longest_substring_wo_repeat_char;
 // mod m4_median_of_two_sorted_arrays;
-
-mod m5_longest_palindromic_substring;
+// mod m5_longest_palindromic_substring;
+mod m6_zigzag;
 
 fn main() {
-    m5_longest_palindromic_substring::test()
+    m6_zigzag::test()
 }
